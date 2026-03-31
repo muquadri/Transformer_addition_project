@@ -1,0 +1,30 @@
+Two-Digit Addition Transformer Project
+
+1. Build a simple Transformer model from scratch in Python (do not use high-level pretrained models).
+2. Ensure that Urdu digits and English digits share the same token ID so the model learns identical numeric meaning.
+   Example:
+   * '3' → token 'a'
+   * '۳' → token 'a'
+3. The model should handle addition of two-digit numbers in mixed formats:
+   Examples:
+   * 17+33=50
+   * ۲۳+۱۵=38
+     * 23+۱۵=38
+     * 50+80=130
+4. Use a token classification approach (encoder-only architecture). Do NOT use a decoder.
+5. Generate the dataset programmatically/coding. Use structured columns such as:
+   (Operand_1_d1, Operand_1_d2, Operator '+', Operand_2_d1, Operand_2_d2, Assignment '=', Output)
+   Dataset should cover all combinations from:
+   * 00+00=00 up to 99+99=100
+6. Define 7 token classes in the Transformer:
+   * Operand_1_d1
+   * Operand_1_d2
+   * Operator '+'
+   * Operand_2_d1
+   * Operand_2_d2
+   * Assignment '='
+7. The Transformer should first classify each token into its respective class (e.g., identifying digits, operators, positions). After classification, pass the structured output to a separate logic (e.g., Python math operations) that:
+   * Identifies operands and operator
+   * Performs the addition
+   * Produces the correct result
+8. The model should be optimized to achieve near 100% accuracy with very low or near-zero loss in minimal training epochs.
